@@ -697,4 +697,4 @@ if __name__ == '__main__':
         if os.path.exists('users.db'): # تعديل هنا لاستخدام users.db
              os.remove('users.db')
         db.create_all()
-    app.run(debug=True)
+    app.run()
