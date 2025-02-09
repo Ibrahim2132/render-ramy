@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Type Classifier</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        #imageUpload {
+            padding: 10px;
+            margin: 20px 0;
+            width: 100%;
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #imagePreview img {
+            max-width: 100%;
+            margin-top: 10px;
+            border-radius: 4px;
+        }
+
+        #classifyButton {
+            padding: 10px 20px;
+            background-color: #145aff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        #classifyButton:hover {
+            background-color: #e0137d;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Text Classifier</h1>
+        <textarea id="textInput" placeholder="Enter text here"></textarea>
+        <button id="classifyButton">Classify</button>
+        <div id="result"></div>
+    </div>
+    <script>
+        const textInput = document.getElementById('textInput');
+        const classifyButton = document.getElementById('classifyButton');
+        const resultDiv = document.getElementById('result');
+
+        classifyButton.addEventListener('click', async () => {
+            const text = textInput.value.trim();
+            if (!text) {
+                alert('Please enter some text first.');
+                return;
+            }
+
+            resultDiv.textContent = "Loading classification...";
+
+            try {
+                const response = await fetch('http://127.0.0.1:5001/classify', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ text: text }),
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                if(data.error){
+                    resultDiv.textContent = `Error: ${data.error}`;
+                } else {
+                    resultDiv.textContent = `Classification: ${data.classification}`;
+                }
+
+            } catch (error) {
+                console.error("Error during classification:", error);
+                resultDiv.textContent = 'Error during classification.';
+            }
+        });
+    </script>
+</body>
+</html>

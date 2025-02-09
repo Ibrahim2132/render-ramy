@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Form</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eef2f7;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+         .navbar {
+            width: 100%;
+          background-color: #034078; /* Dark blue */
+            color: white;
+           padding: 15px 0; /* Reduce the padding */
+            text-align: center;
+         }
+         .navbar a {
+             color: white;
+           text-decoration: none;
+          margin: 0 10px;
+             font-size: 1rem; /* Adjust the font size */
+           font-weight: bold;
+           }
+        .container {
+            width: 95%;
+            max-width: none;
+            margin: 0 auto;
+          background-color: white;
+           border-radius: 0;
+           padding: 20px;
+           box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+         flex: 1;
+            box-sizing: border-box;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        .form-group textarea,
+        .form-group input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+           box-sizing: border-box;
+          }
+        .rating-options {
+            display: flex;
+             justify-content: flex-start;
+            margin-top: 10px;
+        }
+      .rating-options button {
+             padding: 10px 15px;
+            border: 1px solid #ddd;
+            background-color: white;
+           cursor: pointer;
+           border-radius: 8px;
+         margin: 5px;
+           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+
+         }
+        .rating-options button:hover,
+        .rating-options button.selected {
+            background-color: #034078; /* Same dark blue */
+           color: white;
+        }
+        .multiple-choice-options label {
+            display: block;
+            margin-bottom: 10px;
+         }
+        button[type="submit"] {
+            display: block;
+            width: 100%;
+           padding: 12px;
+             background-color: #034078;
+           color: white;
+          border: none;
+           border-radius: 5px;
+           font-size: 1.2rem;
+           cursor: pointer;
+            transition: all 0.3s ease;
+       }
+       button[type="submit"]:hover {
+            background-color: #022c5e;
+      }
+      .footer {
+            width: 100%;
+            background-color: #f4f4f4;
+             padding: 15px;
+           text-align: center;
+           font-size: 0.9rem;
+           color: #666;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+       <a href="#">Questions</a>
+        <a href="#">Community Chat</a>
+          <a href="#">Main Page</a>
+    </nav>
+    <div class="container">
+        <form>
+            <div class="form-group">
+                <label for="question1">1. Question text goes here.</label>
+                <textarea id="question1" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="question2">2. Question text goes here.</label>
+                <textarea id="question2" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="question3">3. Rate your experience (1 = Excellent, 5 = Poor).</label>
+                <div class="rating-options">
+                    <button type="button" data-value="1" class="rating-button">1</button>
+                   <button type="button" data-value="2" class="rating-button">2</button>
+                    <button type="button" data-value="3" class="rating-button">3</button>
+                    <button type="button" data-value="4" class="rating-button">4</button>
+                    <button type="button" data-value="5" class="rating-button">5</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="question4">4. Select one option.</label>
+                <div class="multiple-choice-options">
+                    <label><input type="radio" name="question4" value="option1"> Option 1</label>
+                    <label><input type="radio" name="question4" value="option2"> Option 2</label>
+                    <label><input type="radio" name="question4" value="option3"> Option 3</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="question2">5. Question text goes here.</label>
+                <textarea id="question2" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="question2">6. Question text goes here.</label>
+                <textarea id="question2" rows="4"></textarea>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <footer class="footer">
+        Copyright © 2025. All Rights Reserved.
+    </footer>
+    <script>
+        document.querySelectorAll('.rating-options button').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('.rating-options button').forEach(btn => btn.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
+    </script>
+</body>
+</html>

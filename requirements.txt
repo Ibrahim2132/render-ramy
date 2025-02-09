@@ -1,0 +1,10 @@
+flask
+flask_cors
+flask_sqlalchemy
+reportlab
+google
+google.generativeai
+python-dotenv
+arabic_reshaper
+python-bidi
+gunicorn

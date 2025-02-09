@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Form</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eef2f7;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+         .navbar {
+            width: 100%;
+          background-color: #034078; /* Dark blue */
+            color: white;
+           padding: 15px 0; /* Reduce the padding */
+            text-align: center;
+         }
+         .navbar a {
+             color: white;
+           text-decoration: none;
+          margin: 0 10px;
+             font-size: 1rem; /* Adjust the font size */
+           font-weight: bold;
+           }
+        .container {
+            width: 95%;
+            max-width: none;
+            margin: 0 auto;
+          background-color: white;
+           border-radius: 0;
+           padding: 20px;
+           box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+         flex: 1;
+            box-sizing: border-box;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        .form-group textarea,
+        .form-group input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+           box-sizing: border-box;
+          }
+        .rating-options {
+            display: flex;
+             justify-content: flex-start;
+            margin-top: 10px;
+        }
+      .rating-options button {
+             padding: 10px 15px;
+            border: 1px solid #ddd;
+            background-color: white;
+           cursor: pointer;
+           border-radius: 8px;
+         margin: 5px;
+           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+
+         }
+        .rating-options button:hover,
+        .rating-options button.selected {
+            background-color: #034078; /* Same dark blue */
+           color: white;
+        }
+        .multiple-choice-options label {
+            display: block;
+            margin-bottom: 10px;
+         }
+        button[type="submit"] {
+            display: block;
+            width: 100%;
+           padding: 12px;
+             background-color: #034078;
+           color: white;
+          border: none;
+           border-radius: 5px;
+           font-size: 1.2rem;
+           cursor: pointer;
+            transition: all 0.3s ease;
+       }
+       button[type="submit"]:hover {
+            background-color: #022c5e;
+      }
+      .footer {
+            width: 100%;
+            background-color: #f4f4f4;
+             padding: 15px;
+           text-align: center;
+           font-size: 0.9rem;
+           color: #666;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="form">الأسئلة</a>
+        <a href="chat">دردشة المجتمع</a>
+        <a href="files">الصفحة الرئيسية</a>
+        <a href="files">من نحن</a>
+    </nav>
+    <div class="container">
+        <form id="survey-form">
+            <div class="form-group">
+                <label for="question1">1- تحديد المشكلة ووضع عنوان لها:</label>
+                <textarea id="question1" name="question1" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="question2">2- تحديد خصائص المتعلم:</label>
+                <textarea id="question2" name="question2" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="question3">3- تحديد المهام الاساسية / المحتوى:</label>
+                <textarea id="question3" name="question3" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="question4">4- اكتب أهداف التعلم:</label>
+                <textarea id="question4" name="question4" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="question5">5- تحديد أساليب التقويم:</label>
+               <textarea id="question5" name="question5" rows="4"></textarea>
+           </div>
+            <div class="form-group">
+               <label for="question6">6- تحديد استراتيجيات التعلم ( فردي – تشاركي):</label>
+                <textarea id="question6" name="question6" rows="4"></textarea>
+            </div>
+             <div class="form-group">
+               <label for="question7">7- تحديد أنشطة التعليمية:</label>
+                <textarea id="question7" name="question7" rows="4"></textarea>
+            </div>
+             <div class="form-group">
+               <label for="question8">8- تصميم بنية المحتوى:</label>
+                <textarea id="question8" name="question8" rows="4"></textarea>
+            </div>
+             <div class="form-group">
+               <label for="question9">9- تحديد طرق التفاعل:</label>
+                <textarea id="question9" name="question9" rows="4"></textarea>
+            </div>
+             <div class="form-group">
+               <label for="question10">10- تصميم المساعدة والتوجيه:</label>
+               <textarea id="question10" name="question10" rows="4"></textarea>
+           </div>
+           <div class="form-group">
+               <label for="question11">11- تحديد مصادر التعلم:</label>
+                <textarea id="question11" name="question11" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="question12">12- تحديد شكل واجهة التفاعل:</label>
+                <textarea id="question12" name="question12" rows="4"></textarea>
+            </div>
+           <div class="form-group">
+               <label for="question13">13- تصور للسيناريو مقترح:</label>
+                <textarea id="question13" name="question13" rows="4"></textarea>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+          <div id="results"></div>
+    </div>
+    <footer class="footer">
+        Copyright © 2025. All Rights Reserved.
+    </footer>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('survey-form');
+    const resultsDiv = document.getElementById('results');
+
+    form.addEventListener('submit', async function (event) {
+        event.preventDefault();
+
+        const questions = {
+            question1: "1- تحديد المشكلة ووضع عنوان لها:",
+            question2: "2- تحديد خصائص المتعلم:",
+            question3: "3- تحديد المهام الاساسية / المحتوى:",
+            question4: "4- اكتب أهداف التعلم:",
+            question5: "5- تحديد أساليب التقويم:",
+            question6: "6- تحديد استراتيجيات التعلم ( فردي – تشاركي):",
+            question7: "7- تحديد أنشطة التعليمية:",
+            question8: "8- تصميم بنية المحتوى:",
+            question9: "9- تحديد طرق التفاعل:",
+            question10: "10- تصميم المساعدة والتوجيه:",
+            question11: "11- تحديد مصادر التعلم:",
+            question12: "12- تحديد شكل واجهة التفاعل:",
+            question13: "13- تصور للسيناريو مقترح:"
+        };
+
+        const formData = new FormData(form);
+        const questionsAndAnswers = {};
+
+        formData.forEach((value, key) => {
+            questionsAndAnswers[questions[key]] = value;
+        });
+        resultsDiv.innerHTML = 'جاري معالجة الاجابات.....';
+
+        try {
+            const response = await fetch('/classify', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ questions_and_answers: JSON.stringify(questionsAndAnswers) }),
+            });
+
+            if (!response.ok) {
+               const message = `حدث خطأ: ${response.status} ${response.statusText}`;
+               resultsDiv.innerHTML = `<p style="color: red;">${message}</p>`;
+               return;
+            }
+
+            const blob = await response.blob();
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${questionsAndAnswers["1- تحديد المشكلة ووضع عنوان لها:"] || 'Document'}.pdf`; // اسم الملف
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+            resultsDiv.innerHTML = 'تم انشاء ملف PDF';
+        } catch (error) {
+            resultsDiv.innerHTML = `<p style="color: red;">حدث خطأ غير متوقع : ${error.message}</p>`;
+            console.error('Error:', error);
+        }
+    });
+});
+   </script>
+</body>
+</html>

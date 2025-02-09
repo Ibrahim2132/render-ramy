@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4; /* Light gray background */
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .navbar {
+            width: 100%;
+          background-color: #034078; /* Dark blue */
+            color: white;
+           padding: 15px 0; /* Reduce the padding */
+            text-align: center;
+         }
+         .navbar a {
+             color: white;
+           text-decoration: none;
+          margin: 0 10px;
+             font-size: 1rem; /* Adjust the font size */
+           font-weight: bold;
+           }
+        .container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            flex: 1; /* To fill the remaining space */
+            box-sizing: border-box;
+        }
+        .chat-area {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+        .chat-message {
+            background-color: white;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 10px 15px;
+            margin: 10px;
+            max-width: 70%; /* Control width of messages */
+            align-self: flex-start; /* Place to the left */
+            position: relative;
+        }
+        .chat-message.received {
+            align-self: flex-end; /* Place to the right */
+            background-color: #f0f0f0;
+        }
+        .chat-message span {
+            display: block;
+            color: #999;
+            font-size: 0.8rem;
+            position: absolute;
+            top: -10px;
+            left: 10px;
+        }
+        .chat-message.received span {
+            left: auto;
+            right: 10px;
+        }
+        .chat-message p {
+            margin-bottom: 0px;
+        }
+        .file-message {
+            display: flex;
+            align-items: center;
+            border: 1px solid #eee;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            max-width: 70%;
+            align-self: flex-start; /* Place to the left */
+        }
+        .file-message.received {
+            align-self: flex-end; /* Place to the right */
+        }
+        .file-message span {
+            margin: 0 10px;
+        }
+        .file-message p {
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+        .download-button {
+            display: block;
+            padding: 8px 12px;
+            background-color: #034078;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+         .image-message {
+             display: flex;
+            align-items: center;
+            position: relative;
+            margin-bottom: 10px;
+            align-self: flex-start; /* Place to the left */
+        }
+        .image-message img {
+            max-width: 300px;
+             max-height: 200px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .image-message.received {
+             align-self: flex-end; /* Place to the right */
+        }
+        .image-message button {
+            position: absolute;
+            bottom: 5px;
+             right: 5px;
+             width: 30px;
+            height: 30px;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+           color: white;
+             border: none;
+            border-radius: 50%;
+             cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+        }
+        .audio-message {
+           display: flex;
+            align-items: center;
+            border: 1px solid #eee;
+           padding: 10px;
+            background-color: #f0f0f0;
+           border-radius: 5px;
+            margin-bottom: 10px;
+            max-width: 70%;
+            align-self: flex-start; /* Place to the left */
+        }
+        .audio-message.received {
+            align-self: flex-end; /* Place to the right */
+        }
+        .audio-message button {
+            background-color: #034078;
+            color: white;
+            border: none;
+            padding: 8px 10px;
+             cursor: pointer;
+            border-radius: 50%;
+        }
+        .audio-message .audio-wave {
+           flex-grow: 1;
+           height: 20px;
+           background-color: #fff; /* Wave background color */
+           border-radius: 4px;
+           border: 1px solid #eee;
+           margin: 0 10px;
+        }
+       .footer {
+            width: 100%;
+               display: flex; /* Use Flexbox to align items in the footer */
+            justify-content: center; /* Center items horizontally */
+           background-color: #034078;
+            padding: 20px;
+            text-align: center;
+             font-family: 'Almarai', sans-serif;
+            color: #fff;
+            position: relative; /* To correctly position absolute items */
+       }
+
+        .footer span {
+            position: absolute;
+            bottom: 5px;
+            left: 10px;
+        }
+        .message-input-box{
+            width: 80%;
+           margin: 0 auto;
+             display: flex;
+             align-items: center;
+             background-color: #fff;
+             border: 1px solid #ddd;
+             border-radius: 20px;
+              padding: 8px;
+       }
+        .message-input-box input[type="text"] {
+            border: none;
+            outline: none;
+             flex-grow: 1;
+           padding: 5px 10px;
+            font-size: 1rem;
+      }
+        .message-input-box i {
+            margin: 0 10px;
+             cursor: pointer;
+           color: #034078;
+      }
+       .message-input-box button {
+            background: none;
+             border: none;
+           outline: none;
+           cursor: pointer;
+            color: #034078;
+           font-size: 1.5rem;
+             padding: 5px;
+           border-radius: 50%;
+      }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="form">الأسئلة</a>
+        <a href="chat">دردشة المجتمع</a>
+        <a href="files">الصفحة الرئيسية</a>
+    </nav>
+    <div class="container">
+        <div class="chat-area">
+          {% for message in messages %}
+              {% if message.message_type == 'text' %}
+              <div class="chat-message {% if message.sender_id == session.get('user_id') %}received{% endif %}">
+                   <span>{{ message.sender.username }}</span>
+                  <p>{{ message.content }}</p>
+               </div>
+               {% elif message.message_type == 'file' %}
+                <div class="file-message {% if message.sender_id == session.get('user_id') %}received{% endif %}">
+                  <i class="fas fa-file"></i>
+                    <span>{{ message.sender.username }}</span>
+                    <p>{{ message.content }}</p>
+                    <a href="{{ message.file_location }}" class="download-button" download>Download</a>
+              </div>
+            {% elif message.message_type == 'image' %}
+            <div class="image-message {% if message.sender_id == session.get('user_id') %}received{% endif %}">
+                    <img src="{{ message.file_location }}" alt="image">
+                </div>
+             {% endif %}
+           {% endfor %}
+        </div>
+    </div>
+     <footer class="footer">
+                <div class="message-input-box">
+                    <form method="post" enctype="multipart/form-data" style="display: flex; align-items: center; width: 100%;">
+                            <label for="file-upload">
+                                    <i class="fas fa-paperclip"></i>
+                                    <input id="file-upload" type="file" name="file" style="display: none;" onchange="showFileName(this)">
+                                </label>
+                            <label for="image-upload">
+                                <i class="fas fa-image"></i>
+                                    <input id="image-upload" type="file" name="image" style="display: none;" onchange="showImagePreview(this)">
+                           </label>
+                                <input type="text" name="message" placeholder="اكتب رسالة">
+                          <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                        <div id="preview"></div>
+                      </form>
+                 </div>
+        </footer>
+         <script>
+            function showFileName(input) {
+                const previewDiv = document.getElementById('preview');
+                previewDiv.innerHTML = `<i class="fas fa-file"></i> ${input.files[0].name}`;
+               }
+          function showImagePreview(input) {
+           const previewDiv = document.getElementById('preview');
+             const file = input.files[0];
+             const reader = new FileReader();
+               reader.onload = function(e) {
+                previewDiv.innerHTML = `<img src="${e.target.result}" alt="Image Preview" style="max-height: 100px; max-width: 100px;">`
+          }
+         reader.readAsDataURL(file);
+         }
+         </script>
+</body>
+</html>

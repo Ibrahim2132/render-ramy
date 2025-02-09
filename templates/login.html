@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <style>
+         body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f9f9f9;
+}
+.container {
+  display: flex;
+  width: 90%;
+  max-width: 1200px;
+  height: 600px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.left-side {
+  flex: 1;
+    color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.left-side::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  background: url("{{ url_for('static', filename='login.png') }}") center/cover no-repeat ;
+
+  opacity: .7;
+  z-index: 0;
+}
+.left-side .content{
+  z-index: 2;
+  text-align: left;
+  padding: 5%;
+}
+.left-side h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.left-side p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+.left-side button {
+   background-color: white;
+   color: #0047ab;
+   border: none;
+   padding: 10px 20px;
+   border-radius: 5px;
+   cursor: pointer;
+   font-size: 1em;
+   transition: background-color 0.3s ease;
+}
+
+.left-side button:hover {
+   background-color: #e5e5e5;
+}
+
+.right-side {
+  flex: 1;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.login-form {
+  width: 80%;
+  max-width: 400px;
+}
+.login-form h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+.input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 30px; /* Make the input group oval */
+    padding: 5px;
+    overflow: hidden;
+}
+.input-icon {
+    width: 15px;
+    height: 15px;
+    margin: 0 10px 0 10px;
+    font-size: 1.2em; /* Adjust size of the icon */
+    color: #aaa; /* Adjust icon color */
+}
+
+.input-group input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  border-radius: 30px;/* Match the input group border radius */
+}
+.remember-me {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.remember-me input {
+  margin-right: 5px;
+}
+.login-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #0047ab;
+    color: #ffffff;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    transition: background-color 0.3s ease;
+}
+.login-button:hover {
+  background-color: #00347a;
+}
+.forgot-password {
+  text-align: center;
+  font-size: 0.9em;
+  color: #555;
+  cursor: pointer;
+}
+.forgot-password:hover {
+  text-decoration: underline;
+}
+@media (max-width: 768px) {
+  .container {
+      flex-direction: column;
+      height: auto;
+  }
+  .left-side, .right-side {
+      width: 100%;
+      padding: 30px;
+  }
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-side">
+            <div class="content">
+                <h1>Lorem ipsum ing</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                <button id="readMore">Read More</button>
+            </div>
+        </div>
+        <div class="right-side">
+            <div class="login-form">
+                <h2>Hello!</h2>
+                 <form method="post" action="/login">
+                    <div class="input-group">
+                        <span class="input-icon"><i class="fas fa-user"></i></span>
+                        <input type="text" name="username" placeholder="User name" required>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-icon"><i class="fas fa-lock"></i></span> 
+                        <input type="password" name="password" placeholder="Password" required>
+                    </div>
+                    <div class="remember-me">
+                        <input type="checkbox" name="remember">
+                        <label for="remember">Remember me</label>
+                    </div>
+                    <button type="submit" class="login-button">Login</button>
+                    <p class="forgot-password">Forgot Password</p>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

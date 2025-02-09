@@ -1,0 +1,440 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", serif;
+}
+
+
+/* Body and Background */
+body {
+    background: url('../assets/img16.png') no-repeat center center/cover;
+  
+}
+.navbar-img {
+    transform: translateX(10px);
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+    }
+
+  .hidden {
+    display: none;
+  }
+.sidebar ul li a.active-page i {
+    color: #FFD700; 
+   
+  }
+  
+  .sidebar ul li a.active-page {
+    color: #FFD700; 
+  }
+
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    animation: navbarSlide 1s ease-in-out;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    color: #21797d;
+}
+
+.logo-icon {
+    width: 40px;
+    margin-right: 8px;
+}
+
+.nav-links {
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+    color: #21797d;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a,
+.login-btn {
+    text-decoration: none;
+    color: #21797d;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #2b9a9f;
+}
+
+/* Login Button Styling */
+.login-btn {
+    background-color: #21797d;
+    /* Primary color */
+    border: none;
+    color: #ffffff;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 110px;
+    height: 40px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #2b9a9f;
+    /* Hover color */
+    transform: scale(1.05);
+    /* Slight grow effect on hover */
+    box-shadow: 0 4px 10px rgba(240, 165, 0, 0.4);
+    /* Soft shadow */
+}
+
+.login-btn:active {
+    transform: scale(0.95);
+    /* Subtle press-down effect */
+    box-shadow: none;
+}
+
+/* Burger Menu for Mobile */
+.burger-menu {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.burger-menu div {
+    width: 25px;
+    height: 3px;
+    background-color: #21797d;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Transform lines to create an 'X' */
+.burger-menu.open .line1 {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger-menu.open .line2 {
+    opacity: 0;
+}
+
+.burger-menu.open .line3 {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Code Page */
+.codemain-section {
+    display: flex;
+    justify-content: center;
+    padding-top: 125px;
+}
+
+/* Code Container */
+.code-container {
+    background-color: rgba(255, 255, 255);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 500px;
+    height: 245px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.code-container h1 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+    color: #21797d;
+}
+
+/* Button Styles */
+.code-container .next-btn {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.code-container button {
+    padding: 10px 20px;
+    background-color: #21797d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.code-container button:hover {
+    background-color: #2b9a9f;
+}
+
+.code-container button i {
+    margin-left: 10px;
+}
+
+.input-container {
+    position: relative;
+    margin-bottom: 1.5em;
+}
+
+.input-container input,
+.input-container select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #21797d;
+    border-radius: 5px;
+    font-size: 1em;
+    outline: none;
+    transition: border-color 0.3s;
+    background: none;
+    color: #333;
+}
+
+/* Label styles */
+.input-container label {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    color: #999;
+    font-size: 1em;
+    pointer-events: none;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+    background: #fff;
+    padding: 0 4px;
+}
+
+/* Animation when input is focused or contains value */
+.input-container input:focus + label,
+.input-container input:valid + label
+ {
+    top: 4px;
+    font-size: 0.75em;
+    color: #21797d;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #075F4D;
+    margin-top: 100px;
+    height: 110px;
+  
+  }
+  
+  .footer-section, .footer-stats, .footer-companies {
+    display: flex;
+    flex-direction: column;
+  }
+  .footer-logo{
+    font-size: 25px;
+    font-weight: 500;
+    color: #E4C584;
+  }
+  
+  .footer-logo, .footer-address, .stat, .company {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .footer-stats, .footer-companies {
+    flex-direction: row;
+    gap: 40px;
+    align-items: center;
+  }
+  
+  /* Align icon and address text in a row */
+  .footer-address {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between icon and text */
+    padding-left: 15px;
+    justify-content: center;
+  }
+  
+  .location-icon {
+    font-size: 1.5rem;
+  }
+  footer h3 {
+    font-size: 15px;
+    font-weight: 400;
+  }
+  
+  footer h2 {
+    color: #E4C584;
+    font-size: 18px;
+  }
+  
+  /* Circle Image Styling */
+  .company-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  
+  
+
+/* Animations */
+
+@keyframes navbarSlide {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Slide-in Animation for Menu */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    
+  
+      .nav-links {
+          display: none;
+          flex-direction: column;
+          background-color: rgba(0, 0, 0, 0.8);
+          position: absolute;
+          top: 70px;
+          right: 0;
+          width: 100%;
+          height: 100vh;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          gap: 20px;
+          animation: slideIn 0.5s forwards;
+      }
+  
+      .nav-links.menu-active {
+          display: flex;
+      }
+  
+      .burger-menu {
+          display: flex;
+      }
+  
+      .code-container {
+       
+        width: 80%;
+        max-width: 500px;
+        height: 245px;
+        
+    }
+    
+    .code-container h1 {
+        font-size: 1rem;
+        font-weight: 400;
+        margin-bottom: 20px;
+        color: #21797d;
+    }
+    
+    /* Button Styles */
+    
+    
+    .code-container button {
+        padding: 10px 20px;
+        background-color: #21797d;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 0.8rem;
+        cursor: pointer;
+        transition: 0.3s ease;
+    }
+    footer {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+      }
+      .footer-stats, .footer-section{
+        border-bottom: 1px gray solid;
+        width: 100%;
+    
+      }
+      .footer-stats, .footer-companies {
+        flex-direction: column;
+       
+      }
+    
+    
+  }
+  
+  .dropdown.active {
+    display: block;
+    background-color: #ffffff; /* لون خلفية القائمة */
+    border-radius: 25px; /* زوايا مستديرة بالكامل */
+    padding: 5px 0; /* مسافة داخلية بين العناصر */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* ظل لإبراز القائمة */
+    width: 200px; /* عرض القائمة */
+    text-align: center; /* محاذاة النص في الوسط */
+}
+
+.dropdown.active li {
+    margin: 5px 0; /* مسافة بين العناصر */
+}
+
+.dropdown.active li a {
+    display: block;
+    background-color: #21797d; /* لون خلفية العنصر */
+    color: white; /* لون النص */
+    text-decoration: none; /* إزالة الخط السفلي */
+    padding: 10px 20px; /* مساحة داخلية للنص */
+    border-radius: 20px; /* زوايا مستديرة للعناصر */
+    transition: all 0.3s ease; /* تأثير عند التحويم */
+}
+
+.dropdown.active li a:hover {
+    background-color: #184e50; /* لون الخلفية عند التحويم */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); /* ظل عند التحويم */
+}

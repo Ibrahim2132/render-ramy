@@ -1,0 +1,929 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", serif;
+}
+
+/* Body and Background */
+body {
+    
+    background: url('assets/img4.png') no-repeat center center/cover;
+    color: #fff;
+   
+}
+.sidebar ul li a.active-page i {
+  color: #FFD700; 
+ 
+}
+
+.sidebar ul li a.active-page {
+  color: #FFD700; 
+}
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    animation: navbarSlide 1s ease-in-out;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-icon {
+    width: 40px;
+    margin-right: 8px;
+}
+
+.nav-links {
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+ 
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a,
+.login-btn {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  
+}
+
+.nav-links a:hover {
+  color: #f9c74f;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.language-btn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #333;
+}
+
+.language-btn .fas {
+  margin-right: 5px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  z-index: 1;
+}
+
+.dropdown-content button {
+  background: none;
+  border: none;
+  color: #333;
+  padding: 5px 10px;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Login Button Styling */
+.login-btn {
+    background-color: #ffffff;
+    /* Primary color */
+    border: none;
+    color: #000000;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 113px;
+    height: 40px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #2b9a9f;
+    /* Hover color */
+    transform: scale(1.05);
+    /* Slight grow effect on hover */
+    box-shadow: 0 4px 10px rgba(240, 165, 0, 0.4);
+    /* Soft shadow */
+}
+
+.login-btn:active {
+    transform: scale(0.95);
+    /* Subtle press-down effect */
+    box-shadow: none;
+}
+
+
+
+/* Burger Menu for Mobile */
+.burger-menu {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.burger-menu div {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Transform lines to create an 'X' */
+.burger-menu.open .line1 {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger-menu.open .line2 {
+    opacity: 0;
+}
+
+.burger-menu.open .line3 {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+
+
+
+/* Main Section */
+.container,.container2{
+    max-width: 1000px;
+    margin: 60px auto 20px auto;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    border: 2px solid white;
+}
+
+.container h1 , .container2 h1{
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: left;
+    margin-left: 65px;
+}
+
+.card-container , .card-container2 {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card-container .card , .card-container2 .card {
+    width: 250px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeIn 1s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.card h2 {
+    font-size: 1.2rem;
+    color: black;
+    font-weight: 400;
+}
+
+
+
+/*login page */ 
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    margin-top: 25px;
+    margin-bottom: 5px;
+  }
+  
+  .form-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 900px;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid white;
+  }
+  
+  .image-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .image-section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .form-section {
+    flex: 1;
+    padding: 2em;
+    background-color: white;
+    border-radius: 8px;
+  }
+ 
+  
+  form {
+    width: 100%;
+  }
+  
+  .form-section form h2 {
+    text-align: left;
+    margin-bottom: 1em;
+    color: #333;
+  }
+  
+  .form-section form p {
+    text-align: left;
+    margin-bottom: 1.5em;
+    color: #666;
+  }
+  
+  .input-container {
+    position: relative;
+    margin-bottom: 1.5em;
+  }
+
+  .input-container input,
+  .input-container select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.3s;
+    background: none;
+    color:#333;
+  }
+  
+  /* Label styles */
+  .input-container label {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    color: #999;
+    font-size: 14px;
+    pointer-events: none;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+    background: #fff;
+    padding: 0 4px;
+  }
+  
+  /* Animation when input is focused or contains value */
+  .input-container input:focus + label,
+  .input-container input:not(:placeholder-shown) + label,
+ 
+  .input-container select:focus + label,
+  .input-container select:valid + label {
+    top: 4px;
+    font-size: 15px;
+    color: #21797d;
+  }
+  
+  .password-container {
+    position: relative;
+  }
+  
+  #togglePassword,#toggleConfirmPassword {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 20px;
+    color: #21797d;
+    display: none; /* Initially hidden */
+  }
+  
+  input[type="password"] {
+    padding-right: 30px; /* To make room for the eye icon */
+  }
+  
+  
+ /* Other styles remain the same */
+
+ .checkbox-link{
+    display: flex;
+    justify-content: space-between;
+
+ }
+
+.checkbox-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5em; /* Adds space below the checkbox and link */
+  }
+  
+  .checkbox-container input {
+    margin-right: 8px;
+    color: #21797d;
+  }
+  
+  .checkbox-container label {
+    font-size: 1em;
+    color: #b0b0b0;
+  }
+  
+  .forget-password {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: color 0.3s;
+  }
+  
+  .forget-password:hover {
+    color: #21797d;
+  }
+  .login-container .form-section form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #21797d;
+    color: white;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .login-container .form-section form button:hover {
+    background-color: #2b9a9f;
+  }
+  
+  .switch-text {
+    text-align: center;
+    margin-top: 1em;
+  }
+  
+  .switch-text a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .switch-text a:hover {
+    color: #0056b3;
+  }
+  
+
+
+   /* Code Container */
+.code-container {
+  background-color: rgba(255, 255, 255);
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 615px;
+  display: flex;
+  height: 105px;
+  align-items: baseline;
+  justify-content: space-between; /* Space between items horizontally */
+ 
+}
+
+/* Adjust h1, input, and button styles for row layout */
+main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.code-container h1 {
+  font-size: 18px;
+  font-weight: 400;
+  color: #21797d;
+  width: 329px;
+
+  margin-top: 10px;
+}
+
+.code-container form {
+  display: flex;
+  margin-top: 10px;
+}
+.code-container .input-container {
+  position: relative;
+  flex-grow: 1; /* Makes the input field take up more space */
+}
+
+.input-container input {
+  width: 100%; /* Full width of the container */
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.code-container .next-btn {
+  margin-left: 10px; /* Space between button and input */
+}
+
+.code-container button {
+  padding: 10px 20px;
+  background-color: #21797d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.code-container button:hover {
+  background-color: #32a991;
+}
+
+.code-container button i {
+  margin-left: 10px;
+}
+ 
+
+/* Hidden by default */
+.hidden {
+  display: none;
+}
+
+
+footer {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background-color: #075F4D;
+  margin-top: 30px;
+  height: 110px;
+
+}
+
+.footer-section, .footer-stats, .footer-companies {
+  display: flex;
+  flex-direction: column;
+}
+.footer-logo{
+  font-size: 25px;
+  font-weight: 500;
+  color: #E4C584;
+}
+
+.footer-logo, .footer-address, .stat, .company {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.footer-stats, .footer-companies {
+  flex-direction: row;
+  gap: 40px;
+  align-items: center;
+}
+
+/* Align icon and address text in a row */
+.footer-address {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Space between icon and text */
+  padding-left: 15px;
+  justify-content: center;
+}
+
+.location-icon {
+  font-size: 1.5rem;
+}
+footer h3 {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+footer h2 {
+  color: #E4C584;
+  font-size: 18px;
+}
+
+/* Circle Image Styling */
+.company-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+ /*Access page */
+
+ main{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  
+ }
+
+ .access-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 80%;
+  background-color: #fff;
+  overflow: hidden;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+  width: 50%; /* Adjust width of the content section */
+}
+
+.content h1 {
+  font-size: 36px;
+  font-weight: 500;
+  color: #21797d;
+  margin-bottom: 1rem;
+}
+
+.hourglass-icon {
+  font-size: 30px;
+  color: #f9c74f;
+  animation: flip 2s ease-in-out infinite; /* Animation to flip the icon */
+}
+
+@keyframes flip {
+  0%, 45% {
+      transform: rotate(0deg);
+  }
+  50%, 100% {
+      transform: rotate(180deg);
+  }
+}
+
+.content p {
+  font-size: 18px;
+  color: #000000d1;
+  margin-bottom: 2rem;
+}
+
+button {
+  padding: 0.8rem 1.5rem;
+  font-size: 16px;
+  color: #fff;
+  background-color: #21797d;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #21797d95;
+}
+
+.image-container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.image-container img {
+  width: 80%;
+  height: 80%;
+  object-fit: cover; /* Ensures the image covers the div without distortion */
+  border-radius: 10px;
+}
+
+
+
+/* Animations */
+
+@keyframes navbarSlide {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Slide-in Animation for Menu */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+  
+    width: 80%;
+   
+}
+
+
+  .container h1 {
+    font-size: 1.5rem;
+   
+}
+.code-container {
+  height: auto;
+  width: 68%;
+ flex-direction: column;
+ padding: 10px;
+ gap: 5px;
+ }
+ .code-container form{
+   flex-direction: column;
+ }
+
+ .code-container h1 {
+   font-size: 16px;
+   
+ }
+
+ .input-container input {
+   padding: 8px;
+   font-size: 0.9rem;
+  
+ }
+ .code-container .input-container label {
+   font-size: 16px;
+ }
+
+ .code-container button {
+   font-size: 15px;
+   padding: 8px 10px;
+ }
+
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.8);
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+        animation: slideIn 0.5s forwards;
+    }
+
+    .nav-links.menu-active {
+        display: flex;
+    }
+
+    .burger-menu {
+        display: flex;
+    }
+
+    .card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /*login page*/
+    .form-wrapper {
+        flex-direction: column;
+        width: 95%;
+      }
+    
+      .image-section {
+        display: none;
+      }
+    
+      .form-section {
+       
+        padding: 1.5em;
+      }
+      .checkbox-link{
+        flex-direction: column;
+        margin-bottom: 18px;
+      }
+      .checkbox-container {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        margin-bottom: 1em; 
+      }
+      footer {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+      }
+      .footer-stats, .footer-section{
+        border-bottom: 1px gray solid;
+        width: 100%;
+    
+      }
+      .footer-stats, .footer-companies {
+        flex-direction: column;
+       
+      }
+      .content {
+        width: 100%; /* Full width on smaller screens */
+        padding: 1rem;
+    }
+
+    .content h1 {
+        font-size: 28px;
+    }
+
+    .content p {
+        font-size: 16px;
+    }
+
+    .hourglass-icon {
+        font-size: 24px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 0.6rem 1.2rem;
+    }
+
+    .image-container img {
+        width: 100%;
+        height: auto;
+    }
+    .access-container {
+      flex-direction: column-reverse;
+      width: 85%;
+      height: 95%;
+  }
+
+  
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .card {
+        width: 150px;
+    }
+    .checkbox-link{
+      flex-direction: column;
+    }
+    .code-container {
+     height: auto;
+     width: 90%;
+    flex-direction: column;
+    padding: 10px;
+    gap: 5px;
+    }
+    .code-container form{
+      flex-direction: column;
+    }
+  
+    .code-container h1 {
+      font-size: 16px;
+      padding-left: 15px;
+    }
+  
+    .input-container input {
+      padding: 8px;
+      font-size: 0.9rem;
+     
+    }
+    .code-container .input-container label {
+      font-size: 16px;
+    }
+  
+    .code-container button {
+      font-size: 15px;
+      padding: 8px 10px;
+    }
+    .content h1 {
+      font-size: 20px;
+  }
+
+  .content p {
+      font-size: 14px;
+  }
+
+  .hourglass-icon {
+      font-size: 20px;
+  }
+
+  button {
+      font-size: 12px;
+      padding: 0.5rem 1rem;
+  }
+
+}
+
+
+
+
+
+
+.dropdown.active {
+  display: block;
+  background-color: #ffffff; /* لون خلفية القائمة */
+  border-radius: 25px; /* زوايا مستديرة بالكامل */
+  padding: 5px 0; /* مسافة داخلية بين العناصر */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* ظل لإبراز القائمة */
+  width: 200px; /* عرض القائمة */
+  text-align: center; /* محاذاة النص في الوسط */
+}
+
+.dropdown.active li {
+  margin: 5px 0; /* مسافة بين العناصر */
+}
+
+.dropdown.active li a {
+  display: block;
+  background-color: #21797d; /* لون خلفية العنصر */
+  color: white; /* لون النص */
+  text-decoration: none; /* إزالة الخط السفلي */
+  padding: 10px 20px; /* مساحة داخلية للنص */
+  border-radius: 20px; /* زوايا مستديرة للعناصر */
+  transition: all 0.3s ease; /* تأثير عند التحويم */
+}
+
+.dropdown.active li a:hover {
+  background-color: #184e50; /* لون الخلفية عند التحويم */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); /* ظل عند التحويم */
+}
