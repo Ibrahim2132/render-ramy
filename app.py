@@ -465,7 +465,7 @@ def create_pdf(title, content):
     buffer = io.BytesIO()
 
     # Register the Arabic font
-    pdfmetrics.registerFont(TTFont('Arial', 'arial.ttf'))  # Make sure 'arial.ttf' is in the same dir
+    pdfmetrics.registerFont(TTFont('Arial', 'Arial.ttf'))  # Make sure 'arial.ttf' is in the same dir
 
     doc = SimpleDocTemplate(buffer, pagesize=letter, rightMargin=72, leftMargin=72,
                             topMargin=72, bottomMargin=18)
